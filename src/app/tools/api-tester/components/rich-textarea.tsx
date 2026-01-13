@@ -99,7 +99,7 @@ export const RichTextarea = React.forwardRef<HTMLTextAreaElement, RichTextareaPr
                     ref={backdropRef}
                     className={cn(
                         // Base styles matching Textarea
-                        "absolute inset-0 z-0 overflow-hidden whitespace-pre-wrap break-words bg-background",
+                        "absolute inset-0 z-0 overflow-hidden whitespace-pre-wrap wrap-break-word bg-background",
                         // Padding and Border alignment
                         "px-3 py-2 border border-transparent rounded-lg",
                         // Font styles

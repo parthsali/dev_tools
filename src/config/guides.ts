@@ -12,8 +12,20 @@ export interface Guide {
 export interface GuideStep {
     title: string;
     description?: string;
-    command?: string;
-    code?: { language: string; content: string };
+    command?: string | {
+        // Package Managers
+        npm?: string;
+        pnpm?: string;
+        yarn?: string;
+        bun?: string;
+        // OS Specific
+        windows?: string;
+        mac?: string;
+        linux?: string;
+        // Generic fallback
+        default?: string;
+    };
+    code?: { language: string; content: string; fileName?: string };
     note?: string;
 }
 
@@ -86,95 +98,138 @@ export const guideContents: Record<string, GuideContent> = {
         description: "Set up a modern Next.js project with shadcn/ui components and Tailwind CSS",
         icon: FileCode,
         tags: ["Next.js", "React", "shadcn", "Tailwind"],
-        prerequisites: ["Node.js 18+", "pnpm, npm, or yarn"],
+        prerequisites: ["Node.js 18+", "Package manager"],
         references: [
             { label: "Next.js Docs", url: "https://nextjs.org/docs" },
             { label: "shadcn/ui Docs", url: "https://ui.shadcn.com" },
-            { label: "Tailwind CSS", url: "https://tailwindcss.com" },
         ],
         steps: [
             {
                 title: "Create Next.js Project",
-                description: "Initialize a new Next.js project with TypeScript and Tailwind CSS",
-                command: "npx create-next-app@latest my-app --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\"",
+                description: "Initialize a new project using `create-next-app`. See [Next.js Installation](https://nextjs.org/docs/getting-started/installation).",
+                command: {
+                    npm: "npx create-next-app@latest my-app --typescript --tailwind --eslint",
+                    pnpm: "pnpm create next-app my-app --typescript --tailwind --eslint",
+                    yarn: "yarn create next-app my-app --typescript --tailwind --eslint",
+                    bun: "bun create next-app my-app --typescript --tailwind --eslint"
+                },
+                note: "You will be asked a few questions. Select defaults if unsure.",
             },
             {
                 title: "Navigate to Project",
+                description: "Move into your newly created project directory.",
                 command: "cd my-app",
             },
             {
                 title: "Initialize shadcn/ui",
-                description: "Set up shadcn/ui configuration and base styles",
-                command: "npx shadcn@latest init",
-                note: "Select 'Default' style and your preferred options when prompted",
+                description: "Run the initialization command to set up the base styles and configuration. See [shadcn/ui CLI](https://ui.shadcn.com/docs/cli).",
+                command: {
+                    npm: "npx shadcn@latest init",
+                    pnpm: "pnpm dlx shadcn@latest init",
+                    yarn: "npx shadcn@latest init",
+                    bun: "bunx shadcn@latest init"
+                },
             },
             {
-                title: "Add Components",
-                description: "Install commonly used components",
-                command: "npx shadcn@latest add button card input label",
+                title: "Add Button Component",
+                description: "Install the Button component to test your setup. See [Button Docs](https://ui.shadcn.com/docs/components/button).",
+                command: {
+                    npm: "npx shadcn@latest add button",
+                    pnpm: "pnpm dlx shadcn@latest add button",
+                    yarn: "npx shadcn@latest add button",
+                    bun: "bunx shadcn@latest add button"
+                },
             },
             {
-                title: "Create Example Page",
-                description: "Update your page.tsx to use shadcn components",
+                title: "Update Page Content",
+                description: "Replace the contents of `src/app/page.tsx` with this simple example using the Button.",
                 code: {
                     language: "tsx",
+                    fileName: "src/app/page.tsx",
                     content: `import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle>Welcome to Your App</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Button className="w-full">Get Started</Button>
-        </CardContent>
-      </Card>
-    </main>
+    <div className="flex h-screen items-center justify-center gap-4">
+      <h1 className="text-2xl font-bold">Hello World</h1>
+      <Button>Click me</Button>
+    </div>
   )
 }`,
                 },
             },
             {
                 title: "Start Development Server",
-                command: "npm run dev",
-                note: "Open http://localhost:3000 to see your app",
+                description: "Start the local development server to view your app.",
+                command: {
+                    npm: "npm run dev",
+                    pnpm: "pnpm dev",
+                    yarn: "yarn dev",
+                    bun: "bun dev"
+                },
+                note: "Visit http://localhost:3000 in your browser",
             },
         ],
     },
     "express-typescript-mongo": {
         id: "express-typescript-mongo",
         title: "Express.js + TypeScript + MongoDB",
-        description: "Build a REST API with Express, TypeScript, and MongoDB",
+        description: "Build a robust REST API using Express, TypeScript, and MongoDB with best practices.",
         icon: Server,
-        tags: ["Express", "TypeScript", "MongoDB", "Node.js"],
-        prerequisites: ["Node.js 18+", "MongoDB (local or Atlas)"],
+        tags: ["Express", "TypeScript", "MongoDB", "Node.js", "Backend"],
+        prerequisites: ["Node.js 18+ installed", "MongoDB (local or Atlas connection string)"],
         references: [
-            { label: "Express.js Guide", url: "https://expressjs.com/en/guide" },
-            { label: "TypeScript Docs", url: "https://www.typescriptlang.org/docs" },
-            { label: "MongoDB Driver", url: "https://mongodb.github.io/node-mongodb-native" },
+            { label: "Express Docs", url: "https://expressjs.com" },
+            { label: "Mongoose Docs", url: "https://mongoosejs.com/docs/guide.html" },
+            { label: "TypeScript Docs", url: "https://www.typescriptlang.org/docs/" },
         ],
         steps: [
             {
-                title: "Create Project Directory",
-                command: "mkdir my-api && cd my-api && npm init -y",
+                title: "Initialize Project",
+                description: "Create a new directory and initialize `package.json`. See [npm init utils](https://docs.npmjs.com/cli/v8/commands/npm-init).",
+                command: {
+                    npm: "mkdir my-express-api && cd my-express-api && npm init -y",
+                    pnpm: "mkdir my-express-api && cd my-express-api && pnpm init",
+                    yarn: "mkdir my-express-api && cd my-express-api && yarn init -y",
+                    bun: "mkdir my-express-api && cd my-express-api && bun init -y"
+                },
             },
             {
                 title: "Install Dependencies",
-                description: "Install Express, MongoDB, and development tools",
-                command: "npm install express mongoose dotenv cors helmet && npm install -D typescript @types/node @types/express @types/cors ts-node-dev",
+                description: "Install core libraries: [Express](https://expressjs.com) (framework), [Mongoose](https://mongoosejs.com) (ORM), [dotenv](https://www.npmjs.com/package/dotenv) (env vars), [cors](https://www.npmjs.com/package/cors) (CORS), and [helmet](https://helmetjs.github.io) (security headers).",
+                command: {
+                    npm: "npm install express mongoose dotenv cors helmet",
+                    pnpm: "pnpm add express mongoose dotenv cors helmet",
+                    yarn: "yarn add express mongoose dotenv cors helmet",
+                    bun: "bun add express mongoose dotenv cors helmet"
+                },
+            },
+            {
+                title: "Install Dev Dependencies",
+                description: "Install development tools: [TypeScript](https://www.typescriptlang.org), type definitions (@types/*), and [ts-node-dev](https://www.npmjs.com/package/ts-node-dev) for hot-reloading.",
+                command: {
+                    npm: "npm install -D typescript @types/node @types/express @types/cors ts-node-dev",
+                    pnpm: "pnpm add -D typescript @types/node @types/express @types/cors ts-node-dev",
+                    yarn: "yarn add -D typescript @types/node @types/express @types/cors ts-node-dev",
+                    bun: "bun add -D typescript @types/node @types/express @types/cors ts-node-dev"
+                },
             },
             {
                 title: "Initialize TypeScript",
-                command: "npx tsc --init",
+                description: "Generate a `tsconfig.json` file properly configured for Node.js development.",
+                command: {
+                    npm: "npx tsc --init",
+                    pnpm: "pnpm dlx tsc --init",
+                    yarn: "yarn tsc --init",
+                    bun: "bunx tsc --init"
+                },
             },
             {
                 title: "Configure tsconfig.json",
-                description: "Update TypeScript configuration for Node.js",
+                description: "Update `tsconfig.json` to strictly type your code and output to the `./dist` directory. See [tsconfig ref](https://www.typescriptlang.org/tsconfig).",
                 code: {
                     language: "json",
+                    fileName: "tsconfig.json",
                     content: `{
   "compilerOptions": {
     "target": "ES2020",
@@ -195,9 +250,10 @@ export default function Home() {
             },
             {
                 title: "Create Server File",
-                description: "Create src/index.ts with Express setup",
+                description: "Create the entry point `src/index.ts` with a basic [Express app setup](https://expressjs.com/en/starter/hello-world.html) and [MongoDB connection](https://mongoosejs.com/docs/connections.html).",
                 code: {
                     language: "typescript",
+                    fileName: "src/index.ts",
                     content: `import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
@@ -229,19 +285,22 @@ mongoose.connect(process.env.MONGODB_URI!)
             },
             {
                 title: "Create .env File",
-                description: "Add environment variables",
+                description: "Define environment variables. Ensure `MONGODB_URI` points to your database instance.",
                 code: {
                     language: "bash",
+                    fileName: ".env",
                     content: `PORT=3000
 MONGODB_URI=mongodb://localhost:27017/myapp`,
                 },
             },
             {
                 title: "Add Scripts to package.json",
+                description: "Add `dev`, `build`, and `start` scripts to run your application.",
                 code: {
                     language: "json",
+                    fileName: "package.json",
                     content: `"scripts": {
-  "dev": "ts-node-dev --respawn src/index.ts",
+  "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
   "build": "tsc",
   "start": "node dist/index.js"
 }`,
@@ -249,7 +308,14 @@ MONGODB_URI=mongodb://localhost:27017/myapp`,
             },
             {
                 title: "Start Development Server",
-                command: "npm run dev",
+                description: "Run the development server with hot-reloading.",
+                command: {
+                    npm: "npm run dev",
+                    pnpm: "pnpm dev",
+                    yarn: "yarn dev",
+                    bun: "bun dev"
+                },
+                note: "Server should start on http://localhost:3000",
             },
         ],
     },
