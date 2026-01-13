@@ -123,7 +123,10 @@ function SyntaxHighlighter({ code, language }: { code: string; language: string 
     }, [code, language]);
 
     return (
-        <pre className="p-4 font-mono text-sm overflow-x-auto leading-relaxed">
+        <pre
+            className="p-4 font-mono text-sm overflow-x-auto leading-relaxed"
+            data-lenis-prevent
+        >
             <code dangerouslySetInnerHTML={{ __html: highlighted }} />
         </pre>
     );

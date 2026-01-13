@@ -106,6 +106,7 @@ export const RichInput = React.forwardRef<HTMLInputElement, RichInputProps>(
                     value={value}
                     onChange={onChange}
                     onScroll={handleScroll}
+                    data-lenis-prevent
                     className={cn(
                         "relative z-10 text-transparent bg-transparent caret-foreground selection:bg-blue-500/20 selection:text-transparent",
                         className

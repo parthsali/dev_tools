@@ -43,16 +43,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${APP_FONT === "mono" ? "font-mono" : "font-sans"} antialiased`}
       >
-        <ReactLenis root />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          <main>{children}</main>
-        </ThemeProvider>
+        <ReactLenis root>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
+            <main>{children}</main>
+          </ThemeProvider>
+        </ReactLenis>
       </body>
     </html>
   );

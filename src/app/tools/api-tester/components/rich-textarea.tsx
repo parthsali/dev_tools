@@ -137,6 +137,7 @@ export const RichTextarea = React.forwardRef<HTMLTextAreaElement, RichTextareaPr
                     value={value}
                     onChange={onChange}
                     onScroll={handleScroll}
+                    data-lenis-prevent
                     className={cn(
                         // Ensure it sits on top
                         "relative z-10",
