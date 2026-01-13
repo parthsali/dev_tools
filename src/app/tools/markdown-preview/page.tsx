@@ -19,9 +19,18 @@ import {
 } from "@/components/ui/dialog";
 import { ImagePlus, Eye, Code, Trash2, Copy, Check } from "lucide-react";
 
+interface UploadedImage {
+    id: string;
+    name: string;
+    dataUrl: string;
+}
+
 // Simple markdown to HTML converter
-function markdownToHtml(md: string): string {
+function markdownToHtml(md: string, images: UploadedImage[] = []): string {
     let html = md;
+
+    const imageMap = new Map<string, string>();
+    images.forEach(img => imageMap.set(img.name, img.dataUrl));
 
     // Escape HTML first
     html = html.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -47,7 +56,12 @@ function markdownToHtml(md: string): string {
     html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
 
     // Links and images
-    html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img alt="$1" src="$2" style="max-width:100%;border-radius:8px;margin:8px 0;" />');
+    html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, alt, url) => {
+        const src = imageMap.get(url) || url;
+        return `<img alt="${alt}" src="${src}" style="max-width:100%;border-radius:8px;margin:8px 0;" />`;
+    });
+
+    // Normal links
     html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
 
     // Blockquotes
@@ -121,11 +135,7 @@ You can make text **bold**, *italic*, or ***both***.
 [Visit GitHub](https://github.com)
 `;
 
-interface UploadedImage {
-    id: string;
-    name: string;
-    dataUrl: string;
-}
+
 
 export default function MarkdownPreviewPage() {
     const [markdown, setMarkdown] = useState(SAMPLE_MARKDOWN);
@@ -134,7 +144,7 @@ export default function MarkdownPreviewPage() {
     const [dialogOpen, setDialogOpen] = useState(false);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
-    const html = useMemo(() => markdownToHtml(markdown), [markdown]);
+    const html = useMemo(() => markdownToHtml(markdown, uploadedImages), [markdown, uploadedImages]);
 
     const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         const files = e.target.files;
@@ -164,15 +174,17 @@ export default function MarkdownPreviewPage() {
     };
 
     const copyImageMarkdown = async (img: UploadedImage) => {
-        const md = `![${img.name}](${img.dataUrl})`;
+        const md = `![${img.name}](${img.name})`;
         await navigator.clipboard.writeText(md);
         setCopiedId(img.id);
         setTimeout(() => setCopiedId(null), 1500);
     };
 
     const insertImage = (img: UploadedImage) => {
-        const md = `![${img.name}](${img.dataUrl})`;
-        setMarkdown((prev) => prev + "\n\n" + md);
+        // Using the image name as the reference URL to handle duplicate filenames correctly. 
+        // The parser will look up the filename in the uploadedImages list
+        const md = `![${img.name}](${img.name})`;
+        setMarkdown((prev) => prev + "\n" + md);
         setDialogOpen(false);
     };
 
