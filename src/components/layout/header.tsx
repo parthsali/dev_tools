@@ -6,7 +6,7 @@ import { GithubIcon } from "@/components/icons/github";
 import { Button } from "@/components/ui/button";
 import { BookOpen } from "lucide-react";
 
-const GITHUB_REPO = "https://github.com/parthsali/devtools";
+const GITHUB_REPO = "https://github.com/parthsali/dev_tools";
 
 export default function Header() {
     return (
@@ -35,7 +35,7 @@ export default function Header() {
                             rel="noopener noreferrer"
                             aria-label="GitHub Repository"
                         >
-                            <GithubIcon className="h-[1.2rem] w-[1.2rem]" />
+                            <GithubIcon className="h-5 w-5" />
                         </a>
                     </Button>
                     <ThemeToggle />

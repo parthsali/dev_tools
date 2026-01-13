@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DevTools - Developer Utilities",
+  title: "dev_tools - Developer Utilities",
   description:
     "A collection of essential developer tools. Regex tester, JSON formatter, Base64 encoder, and more.",
   keywords: [
