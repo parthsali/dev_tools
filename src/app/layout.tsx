@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import Header from "@/components/layout/header";
 import { ReactLenis } from "lenis/react";
+import UmamiAnalytics from "@/components/analytics/umami-analytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,6 +54,7 @@ export default function RootLayout({
             <Header />
             <main>{children}</main>
           </ThemeProvider>
+          <UmamiAnalytics />
         </ReactLenis>
       </body>
     </html>
