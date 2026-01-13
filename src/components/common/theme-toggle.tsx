@@ -32,7 +32,7 @@ export function ThemeToggle() {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="absolute"
             >
-                <Sun className="h-[1.2rem] w-[1.2rem]" />
+                <Sun className="h-5 w-5" />
             </motion.div>
 
             <motion.div
@@ -45,7 +45,7 @@ export function ThemeToggle() {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="absolute"
             >
-                <Moon className="h-[1.2rem] w-[1.2rem]" />
+                <Moon className="h-5 w-5" />
             </motion.div>
         </Button>
     );
