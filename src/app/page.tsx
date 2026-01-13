@@ -32,7 +32,7 @@ export default function Home() {
             Developer Tools
           </h1>
           <p className="mt-2 text-muted-foreground max-w-lg mx-auto">
-            A collection of essential utilities for developers. Fast, minimal, and works offline.
+            A collection of essential utilities for developers. Fast and minimal.
           </p>
         </motion.div>
 
