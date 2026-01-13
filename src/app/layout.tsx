@@ -28,6 +28,10 @@ export const metadata: Metadata = {
   ],
 };
 
+// Configuration: Set this to "sans" or "mono" to change the global font family
+// Expected values: "sans" | "mono"
+const APP_FONT: "sans" | "mono" = "mono";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -36,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${APP_FONT === "mono" ? "font-mono" : "font-sans"} antialiased`}
       >
         <ThemeProvider
           attribute="class"
