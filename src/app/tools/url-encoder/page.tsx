@@ -1,82 +1,12 @@
-"use client";
+import { constructMetadata } from "@/lib/metadata";
+import UrlEncoderPage from "./client";
 
-import { useState } from "react";
-import { ToolLayout, CopyButton } from "@/components/tools/tool-layout";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
+export const metadata = constructMetadata({
+    title: "URL Encoder/Decoder",
+    description: "Securely encode and decode URL strings. Convert special characters to URL-safe format.",
+    path: "/tools/url-encoder",
+});
 
-export default function UrlEncoderPage() {
-    const [input, setInput] = useState("");
-    const [output, setOutput] = useState("");
-    const [mode, setMode] = useState<"encode" | "decode">("encode");
-    const [error, setError] = useState("");
-
-    const handleEncode = () => {
-        try {
-            setError("");
-            const encoded = encodeURIComponent(input);
-            setOutput(encoded);
-            setMode("encode");
-        } catch (e) {
-            setError("Failed to encode input");
-        }
-    };
-
-    const handleDecode = () => {
-        try {
-            setError("");
-            const decoded = decodeURIComponent(input);
-            setOutput(decoded);
-            setMode("decode");
-        } catch (e) {
-            setError("Invalid URL encoded string");
-        }
-    };
-
-    return (
-        <ToolLayout
-            title="URL Encoder"
-            description="Encode and decode URL components"
-        >
-            <div className="max-w-3xl mx-auto space-y-6">
-                <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                        <Label>Input</Label>
-                        <div className="flex gap-2">
-                            <Button size="sm" onClick={handleEncode}>
-                                Encode
-                            </Button>
-                            <Button size="sm" variant="outline" onClick={handleDecode}>
-                                Decode
-                            </Button>
-                        </div>
-                    </div>
-                    <Textarea
-                        value={input}
-                        onChange={(e) => setInput(e.target.value)}
-                        placeholder="Enter text to encode or URL encoded string to decode..."
-                        className="min-h-[150px]"
-                    />
-                </div>
-
-                {error && (
-                    <p className="text-sm text-destructive">{error}</p>
-                )}
-
-                <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                        <Label>{mode === "encode" ? "Encoded" : "Decoded"} Output</Label>
-                        <CopyButton text={output} />
-                    </div>
-                    <Textarea
-                        value={output}
-                        readOnly
-                        placeholder="Result will appear here..."
-                        className="min-h-[150px] bg-muted/30"
-                    />
-                </div>
-            </div>
-        </ToolLayout>
-    );
+export default function Page() {
+    return <UrlEncoderPage />;
 }
