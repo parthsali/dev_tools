@@ -51,6 +51,7 @@ interface KeyValue {
     enabled: boolean;
 }
 
+
 interface ApiResponse {
     status: number;
     statusText: string;
@@ -83,6 +84,7 @@ const getStatusColor = (status: number) => {
     if (status >= 500) return "destructive";
     return "secondary";
 };
+
 
 export default function ApiTesterPage() {
     const [method, setMethod] = useState<typeof HTTP_METHODS[number]>("GET");
@@ -193,7 +195,7 @@ export default function ApiTesterPage() {
     };
 
     const handleSend = async () => {
-        if (!url.trim()) {
+        if (!(baseUrl || url).trim()) {
             setError("URL is required");
             return;
         }
@@ -293,9 +295,9 @@ export default function ApiTesterPage() {
                 {/* URL Bar */}
                 <Card>
                     <CardContent className="pt-4">
-                        <div className="flex gap-2">
+                        <div className="flex items-center gap-2">
                             <Select value={method} onValueChange={(v) => setMethod(v as typeof method)}>
-                                <SelectTrigger className="w-28">
+                                <SelectTrigger className="w-28 h-10">
                                     <SelectValue />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -307,62 +309,67 @@ export default function ApiTesterPage() {
                                 </SelectContent>
                             </Select>
 
-                            <div className="flex-1 relative">
+                            <div className="flex-1 flex w-full relative items-center rounded-md border border-input bg-background ring-offset-background focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2">
                                 {baseUrl && (
-                                    <Badge variant="secondary" className="absolute left-2 top-1/2 -translate-y-1/2 text-xs font-mono">
-                                        {baseUrl.length > 20 ? baseUrl.slice(0, 20) + "..." : baseUrl}
-                                    </Badge>
-                                )}
-                                <RichInput
-                                    variables={enabledVariables}
-                                    ref={urlInputRef}
-                                    value={url}
-                                    onChange={(e) => handleInputChange(e.target.value, "url")}
-                                    placeholder="/api/endpoint or full URL"
-                                    className={`font-mono ${baseUrl ? "pl-[calc(0.5rem+var(--base-url-width))]" : ""}`}
-                                    style={{ "--base-url-width": baseUrl ? `${Math.min(baseUrl.length * 0.5, 10)}rem` : "0" } as React.CSSProperties}
-                                    onKeyDown={(e) => e.key === "Enter" && !showVariablePopover && handleSend()}
-                                />
-
-                                {/* Variable Autocomplete Popover */}
-                                {showVariablePopover && activeInputRef === "url" && enabledVariables.length > 0 && (
-                                    <div className="absolute top-full left-0 right-0 mt-1 z-50">
-                                        <Card className="shadow-lg">
-                                            <CardContent className="p-2">
-                                                <p className="text-xs text-muted-foreground mb-2 px-2">
-                                                    Available variables
-                                                </p>
-                                                {enabledVariables
-                                                    .filter(v => v.key.toLowerCase().includes(variableSearchTerm.toLowerCase()))
-                                                    .map((v) => (
-                                                        <button
-                                                            key={v.key}
-                                                            onClick={() => insertVariable(v.key)}
-                                                            className="w-full flex items-center justify-between px-2 py-1.5 rounded hover:bg-muted text-left"
-                                                        >
-                                                            <div className="flex items-center gap-2">
-                                                                <Variable className="h-3 w-3 text-muted-foreground" />
-                                                                <span className="font-mono text-sm">{`{{${v.key}}}`}</span>
-                                                            </div>
-                                                            <span className="text-xs text-muted-foreground truncate max-w-[150px]">
-                                                                {v.value}
-                                                            </span>
-                                                        </button>
-                                                    ))}
-                                            </CardContent>
-                                        </Card>
+                                    <div className="shrink-0 flex items-center pl-3 pr-0 select-none max-w-[40%] overflow-hidden h-10">
+                                        <span
+                                            className="font-mono text-sm font-bold text-purple-600 bg-purple-500/10 dark:text-purple-400 dark:bg-purple-500/20 rounded-sm px-1 truncate"
+                                            title={baseUrl}
+                                        >
+                                            {baseUrl}
+                                        </span>
                                     </div>
                                 )}
+                                <div className="flex-1 min-w-0">
+                                    <RichInput
+                                        variables={enabledVariables}
+                                        ref={urlInputRef}
+                                        value={url}
+                                        onChange={(e) => handleInputChange(e.target.value, "url")}
+                                        placeholder={baseUrl ? "/api/endpoint" : "https://api.example.com/endpoint"}
+                                        className={`w-full border-0 focus-visible:ring-0 shadow-none rounded-none bg-transparent h-10 font-mono ${baseUrl ? "pl-0" : "px-3"}`}
+                                        onKeyDown={(e) => e.key === "Enter" && !showVariablePopover && handleSend()}
+                                    />
+                                    {/* Variable Autocomplete Popover */}
+                                    {showVariablePopover && activeInputRef === "url" && enabledVariables.length > 0 && (
+                                        <div className="absolute top-full left-0 right-0 mt-1 z-50">
+                                            <Card className="shadow-lg">
+                                                <CardContent className="p-2">
+                                                    <p className="text-xs text-muted-foreground mb-2 px-2">
+                                                        Available variables
+                                                    </p>
+                                                    {enabledVariables
+                                                        .filter(v => v.key.toLowerCase().includes(variableSearchTerm.toLowerCase()))
+                                                        .map((v) => (
+                                                            <button
+                                                                key={v.key}
+                                                                onClick={() => insertVariable(v.key)}
+                                                                className="w-full flex items-center justify-between px-2 py-1.5 rounded hover:bg-muted text-left"
+                                                            >
+                                                                <div className="flex items-center gap-2">
+                                                                    <Variable className="h-3 w-3 text-muted-foreground" />
+                                                                    <span className="font-mono text-sm">{`{{${v.key}}}`}</span>
+                                                                </div>
+                                                                <span className="text-xs text-muted-foreground truncate max-w-[150px]">
+                                                                    {v.value}
+                                                                </span>
+                                                            </button>
+                                                        ))}
+                                                </CardContent>
+                                            </Card>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
 
-                            <Button onClick={handleSend} disabled={loading}>
+                            <Button onClick={handleSend} disabled={loading} className="h-10">
                                 {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
                                 <span className="ml-2 hidden sm:inline">Send</span>
                             </Button>
 
                             <Dialog open={settingsOpen} onOpenChange={setSettingsOpen}>
                                 <DialogTrigger asChild>
-                                    <Button variant="outline" size="icon">
+                                    <Button variant="outline" size="icon" className="h-10 w-10">
                                         <Settings className="h-4 w-4" />
                                     </Button>
                                 </DialogTrigger>
@@ -530,6 +537,8 @@ export default function ApiTesterPage() {
                                         </div>
                                     )}
                                 </TabsContent>
+
+
 
                                 <TabsContent value="headers" className="mt-3 space-y-2">
                                     <ScrollArea className="h-[176px]">
