@@ -16,19 +16,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "dev_tools - Developer Utilities",
-  description:
-    "A collection of essential developer tools. Regex tester, JSON formatter, Base64 encoder, and more.",
-  keywords: [
-    "developer tools",
-    "regex tester",
-    "json formatter",
-    "base64",
-    "url encoder",
-    "jwt decoder",
-  ],
-};
+import { constructMetadata } from "@/lib/metadata";
+
+export const metadata = constructMetadata({
+  title: "DevTools - Developer Utilities",
+  description: "A collection of essential developer tools. Regex tester, JSON formatter, Base64 encoder, and more.",
+});
 
 // Configuration: Set this to "sans" or "mono" to change the global font family
 // Expected values: "sans" | "mono"
