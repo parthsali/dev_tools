@@ -184,7 +184,7 @@ function CommandBlock({ command }: { command: NonNullable<GuideStep['command']> 
                                 variant={activeKey === mgr ? "secondary" : "ghost"}
                                 size="sm"
                                 onClick={() => setPackageManager(mgr as any)}
-                                className={`h-7 px-3 text-xs capitalize ${activeKey === mgr ? 'bg-primary/10 text-primary hover:bg-primary/20' : 'text-muted-foreground'}`}
+                                className={`h-7 px-3 text-xs ${activeKey === mgr ? 'bg-primary/10 text-primary hover:bg-primary/20' : 'text-muted-foreground'}`}
                             >
                                 {mgr}
                             </Button>
@@ -200,9 +200,9 @@ function CommandBlock({ command }: { command: NonNullable<GuideStep['command']> 
                                 variant={activeKey === sys ? "secondary" : "ghost"}
                                 size="sm"
                                 onClick={() => setOs(sys as any)}
-                                className={`h-7 px-3 text-xs capitalize ${activeKey === sys ? 'bg-primary/10 text-primary hover:bg-primary/20' : 'text-muted-foreground'}`}
+                                className={`h-7 px-3 text-xs ${activeKey === sys ? 'bg-primary/10 text-primary hover:bg-primary/20' : 'text-muted-foreground'}`}
                             >
-                                {sys === 'mac' ? 'macOS' : sys === 'windows' ? 'Windows' : 'Linux'}
+                                {sys === 'mac' ? 'macos' : sys === 'windows' ? 'windows' : 'linux'}
                             </Button>
                         ))}
                     </div>
