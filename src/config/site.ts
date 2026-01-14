@@ -10,7 +10,7 @@ export const siteConfig = {
         github: "https://github.com/parthsali/tools",
     },
     author: {
-        name: "Parth Sali",
+        name: "Parth",
         twitter: "@parthsali",
         github: "https://github.com/parthsali",
     },
