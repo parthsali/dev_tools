@@ -1,0 +1,1102 @@
+[
+  {
+    "id": 1,
+    "title": "Product 1",
+    "description": "This is a description for product 1 in the books category.",
+    "category": "books",
+    "price": 67.56,
+    "discountPercentage": 16.04,
+    "rating": 3.5,
+    "stock": 423,
+    "brand": "Sony",
+    "tags": [
+      "books",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/1/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/1/1.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Product 2",
+    "description": "This is a description for product 2 in the clothing category.",
+    "category": "clothing",
+    "price": 476.77,
+    "discountPercentage": 11.25,
+    "rating": 3,
+    "stock": 453,
+    "brand": "Sony",
+    "tags": [
+      "clothing",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/2/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/2/1.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Product 3",
+    "description": "This is a description for product 3 in the home category.",
+    "category": "home",
+    "price": 258.41,
+    "discountPercentage": 2.36,
+    "rating": 2.1,
+    "stock": 2,
+    "brand": "Samsung",
+    "tags": [
+      "home",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/3/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/3/1.jpg"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Product 4",
+    "description": "This is a description for product 4 in the clothing category.",
+    "category": "clothing",
+    "price": 699.63,
+    "discountPercentage": 15.52,
+    "rating": 3.3,
+    "stock": 160,
+    "brand": "Nike",
+    "tags": [
+      "clothing",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/4/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/4/1.jpg"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Product 5",
+    "description": "This is a description for product 5 in the outdoors category.",
+    "category": "outdoors",
+    "price": 851.61,
+    "discountPercentage": 9.33,
+    "rating": 3.9,
+    "stock": 81,
+    "brand": "Sony",
+    "tags": [
+      "outdoors",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/5/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/5/1.jpg"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Product 6",
+    "description": "This is a description for product 6 in the home category.",
+    "category": "home",
+    "price": 514.6,
+    "discountPercentage": 5.17,
+    "rating": 1.5,
+    "stock": 268,
+    "brand": "Adidas",
+    "tags": [
+      "home",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/6/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/6/1.jpg"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Product 7",
+    "description": "This is a description for product 7 in the home category.",
+    "category": "home",
+    "price": 275.47,
+    "discountPercentage": 0.83,
+    "rating": 1.6,
+    "stock": 222,
+    "brand": "Sony",
+    "tags": [
+      "home",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/7/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/7/1.jpg"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Product 8",
+    "description": "This is a description for product 8 in the outdoors category.",
+    "category": "outdoors",
+    "price": 832.07,
+    "discountPercentage": 12.21,
+    "rating": 3.1,
+    "stock": 385,
+    "brand": "Dell",
+    "tags": [
+      "outdoors",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/8/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/8/1.jpg"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Product 9",
+    "description": "This is a description for product 9 in the home category.",
+    "category": "home",
+    "price": 440.52,
+    "discountPercentage": 16.93,
+    "rating": 1.8,
+    "stock": 398,
+    "brand": "HP",
+    "tags": [
+      "home",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/9/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/9/1.jpg"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Product 10",
+    "description": "This is a description for product 10 in the beauty category.",
+    "category": "beauty",
+    "price": 330.98,
+    "discountPercentage": 4.5,
+    "rating": 3.6,
+    "stock": 94,
+    "brand": "Samsung",
+    "tags": [
+      "beauty",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/10/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/10/1.jpg"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Product 11",
+    "description": "This is a description for product 11 in the electronics category.",
+    "category": "electronics",
+    "price": 742.28,
+    "discountPercentage": 10.05,
+    "rating": 1.4,
+    "stock": 433,
+    "brand": "HP",
+    "tags": [
+      "electronics",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/11/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/11/1.jpg"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Product 12",
+    "description": "This is a description for product 12 in the electronics category.",
+    "category": "electronics",
+    "price": 767.83,
+    "discountPercentage": 18,
+    "rating": 2.4,
+    "stock": 100,
+    "brand": "Dell",
+    "tags": [
+      "electronics",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/12/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/12/1.jpg"
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Product 13",
+    "description": "This is a description for product 13 in the outdoors category.",
+    "category": "outdoors",
+    "price": 808.35,
+    "discountPercentage": 15.06,
+    "rating": 1.1,
+    "stock": 362,
+    "brand": "Samsung",
+    "tags": [
+      "outdoors",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/13/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/13/1.jpg"
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Product 14",
+    "description": "This is a description for product 14 in the books category.",
+    "category": "books",
+    "price": 728.89,
+    "discountPercentage": 11.99,
+    "rating": 2.1,
+    "stock": 261,
+    "brand": "Apple",
+    "tags": [
+      "books",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/14/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/14/1.jpg"
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Product 15",
+    "description": "This is a description for product 15 in the outdoors category.",
+    "category": "outdoors",
+    "price": 424.98,
+    "discountPercentage": 5.06,
+    "rating": 1.1,
+    "stock": 76,
+    "brand": "Dell",
+    "tags": [
+      "outdoors",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/15/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/15/1.jpg"
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Product 16",
+    "description": "This is a description for product 16 in the electronics category.",
+    "category": "electronics",
+    "price": 222.97,
+    "discountPercentage": 0.35,
+    "rating": 4.4,
+    "stock": 377,
+    "brand": "Dell",
+    "tags": [
+      "electronics",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/16/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/16/1.jpg"
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Product 17",
+    "description": "This is a description for product 17 in the electronics category.",
+    "category": "electronics",
+    "price": 748.51,
+    "discountPercentage": 13.38,
+    "rating": 1.5,
+    "stock": 459,
+    "brand": "Apple",
+    "tags": [
+      "electronics",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/17/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/17/1.jpg"
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Product 18",
+    "description": "This is a description for product 18 in the home category.",
+    "category": "home",
+    "price": 220.41,
+    "discountPercentage": 11.93,
+    "rating": 1.1,
+    "stock": 201,
+    "brand": "Nike",
+    "tags": [
+      "home",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/18/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/18/1.jpg"
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Product 19",
+    "description": "This is a description for product 19 in the books category.",
+    "category": "books",
+    "price": 332.98,
+    "discountPercentage": 0.93,
+    "rating": 1.5,
+    "stock": 33,
+    "brand": "Nike",
+    "tags": [
+      "books",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/19/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/19/1.jpg"
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Product 20",
+    "description": "This is a description for product 20 in the home category.",
+    "category": "home",
+    "price": 247.09,
+    "discountPercentage": 4.34,
+    "rating": 4,
+    "stock": 388,
+    "brand": "Nike",
+    "tags": [
+      "home",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/20/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/20/1.jpg"
+    ]
+  },
+  {
+    "id": 21,
+    "title": "Product 21",
+    "description": "This is a description for product 21 in the outdoors category.",
+    "category": "outdoors",
+    "price": 206.65,
+    "discountPercentage": 2.3,
+    "rating": 2.1,
+    "stock": 457,
+    "brand": "Adidas",
+    "tags": [
+      "outdoors",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/21/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/21/1.jpg"
+    ]
+  },
+  {
+    "id": 22,
+    "title": "Product 22",
+    "description": "This is a description for product 22 in the clothing category.",
+    "category": "clothing",
+    "price": 396.22,
+    "discountPercentage": 17.41,
+    "rating": 4.1,
+    "stock": 128,
+    "brand": "HP",
+    "tags": [
+      "clothing",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/22/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/22/1.jpg"
+    ]
+  },
+  {
+    "id": 23,
+    "title": "Product 23",
+    "description": "This is a description for product 23 in the beauty category.",
+    "category": "beauty",
+    "price": 399.62,
+    "discountPercentage": 17.84,
+    "rating": 4,
+    "stock": 71,
+    "brand": "Apple",
+    "tags": [
+      "beauty",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/23/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/23/1.jpg"
+    ]
+  },
+  {
+    "id": 24,
+    "title": "Product 24",
+    "description": "This is a description for product 24 in the home category.",
+    "category": "home",
+    "price": 974.35,
+    "discountPercentage": 11.87,
+    "rating": 2.4,
+    "stock": 55,
+    "brand": "HP",
+    "tags": [
+      "home",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/24/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/24/1.jpg"
+    ]
+  },
+  {
+    "id": 25,
+    "title": "Product 25",
+    "description": "This is a description for product 25 in the beauty category.",
+    "category": "beauty",
+    "price": 403.21,
+    "discountPercentage": 19.89,
+    "rating": 4.3,
+    "stock": 186,
+    "brand": "Apple",
+    "tags": [
+      "beauty",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/25/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/25/1.jpg"
+    ]
+  },
+  {
+    "id": 26,
+    "title": "Product 26",
+    "description": "This is a description for product 26 in the beauty category.",
+    "category": "beauty",
+    "price": 305.38,
+    "discountPercentage": 14.68,
+    "rating": 3.7,
+    "stock": 339,
+    "brand": "Dell",
+    "tags": [
+      "beauty",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/26/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/26/1.jpg"
+    ]
+  },
+  {
+    "id": 27,
+    "title": "Product 27",
+    "description": "This is a description for product 27 in the home category.",
+    "category": "home",
+    "price": 930.24,
+    "discountPercentage": 7.73,
+    "rating": 3.1,
+    "stock": 10,
+    "brand": "HP",
+    "tags": [
+      "home",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/27/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/27/1.jpg"
+    ]
+  },
+  {
+    "id": 28,
+    "title": "Product 28",
+    "description": "This is a description for product 28 in the clothing category.",
+    "category": "clothing",
+    "price": 95.99,
+    "discountPercentage": 6.57,
+    "rating": 4.7,
+    "stock": 284,
+    "brand": "HP",
+    "tags": [
+      "clothing",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/28/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/28/1.jpg"
+    ]
+  },
+  {
+    "id": 29,
+    "title": "Product 29",
+    "description": "This is a description for product 29 in the outdoors category.",
+    "category": "outdoors",
+    "price": 707.5,
+    "discountPercentage": 4.57,
+    "rating": 3.6,
+    "stock": 278,
+    "brand": "Nike",
+    "tags": [
+      "outdoors",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/29/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/29/1.jpg"
+    ]
+  },
+  {
+    "id": 30,
+    "title": "Product 30",
+    "description": "This is a description for product 30 in the electronics category.",
+    "category": "electronics",
+    "price": 748.07,
+    "discountPercentage": 15.04,
+    "rating": 2.9,
+    "stock": 42,
+    "brand": "HP",
+    "tags": [
+      "electronics",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/30/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/30/1.jpg"
+    ]
+  },
+  {
+    "id": 31,
+    "title": "Product 31",
+    "description": "This is a description for product 31 in the books category.",
+    "category": "books",
+    "price": 219.39,
+    "discountPercentage": 2.95,
+    "rating": 1.2,
+    "stock": 308,
+    "brand": "Apple",
+    "tags": [
+      "books",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/31/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/31/1.jpg"
+    ]
+  },
+  {
+    "id": 32,
+    "title": "Product 32",
+    "description": "This is a description for product 32 in the outdoors category.",
+    "category": "outdoors",
+    "price": 932.81,
+    "discountPercentage": 9.46,
+    "rating": 2.6,
+    "stock": 227,
+    "brand": "Apple",
+    "tags": [
+      "outdoors",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/32/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/32/1.jpg"
+    ]
+  },
+  {
+    "id": 33,
+    "title": "Product 33",
+    "description": "This is a description for product 33 in the outdoors category.",
+    "category": "outdoors",
+    "price": 623.91,
+    "discountPercentage": 15.77,
+    "rating": 2.2,
+    "stock": 257,
+    "brand": "Sony",
+    "tags": [
+      "outdoors",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/33/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/33/1.jpg"
+    ]
+  },
+  {
+    "id": 34,
+    "title": "Product 34",
+    "description": "This is a description for product 34 in the clothing category.",
+    "category": "clothing",
+    "price": 802.91,
+    "discountPercentage": 0.48,
+    "rating": 1.2,
+    "stock": 478,
+    "brand": "HP",
+    "tags": [
+      "clothing",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/34/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/34/1.jpg"
+    ]
+  },
+  {
+    "id": 35,
+    "title": "Product 35",
+    "description": "This is a description for product 35 in the clothing category.",
+    "category": "clothing",
+    "price": 36.86,
+    "discountPercentage": 4.06,
+    "rating": 2.7,
+    "stock": 319,
+    "brand": "Adidas",
+    "tags": [
+      "clothing",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/35/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/35/1.jpg"
+    ]
+  },
+  {
+    "id": 36,
+    "title": "Product 36",
+    "description": "This is a description for product 36 in the home category.",
+    "category": "home",
+    "price": 148.65,
+    "discountPercentage": 18.45,
+    "rating": 4.1,
+    "stock": 99,
+    "brand": "Dell",
+    "tags": [
+      "home",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/36/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/36/1.jpg"
+    ]
+  },
+  {
+    "id": 37,
+    "title": "Product 37",
+    "description": "This is a description for product 37 in the beauty category.",
+    "category": "beauty",
+    "price": 468.13,
+    "discountPercentage": 18.28,
+    "rating": 3.6,
+    "stock": 419,
+    "brand": "Adidas",
+    "tags": [
+      "beauty",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/37/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/37/1.jpg"
+    ]
+  },
+  {
+    "id": 38,
+    "title": "Product 38",
+    "description": "This is a description for product 38 in the books category.",
+    "category": "books",
+    "price": 856.65,
+    "discountPercentage": 7.72,
+    "rating": 1.3,
+    "stock": 184,
+    "brand": "Apple",
+    "tags": [
+      "books",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/38/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/38/1.jpg"
+    ]
+  },
+  {
+    "id": 39,
+    "title": "Product 39",
+    "description": "This is a description for product 39 in the electronics category.",
+    "category": "electronics",
+    "price": 439.07,
+    "discountPercentage": 12.88,
+    "rating": 1.3,
+    "stock": 241,
+    "brand": "Sony",
+    "tags": [
+      "electronics",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/39/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/39/1.jpg"
+    ]
+  },
+  {
+    "id": 40,
+    "title": "Product 40",
+    "description": "This is a description for product 40 in the beauty category.",
+    "category": "beauty",
+    "price": 99.53,
+    "discountPercentage": 1.94,
+    "rating": 4.7,
+    "stock": 413,
+    "brand": "HP",
+    "tags": [
+      "beauty",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/40/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/40/1.jpg"
+    ]
+  },
+  {
+    "id": 41,
+    "title": "Product 41",
+    "description": "This is a description for product 41 in the electronics category.",
+    "category": "electronics",
+    "price": 203.5,
+    "discountPercentage": 14.66,
+    "rating": 1.6,
+    "stock": 297,
+    "brand": "Nike",
+    "tags": [
+      "electronics",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/41/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/41/1.jpg"
+    ]
+  },
+  {
+    "id": 42,
+    "title": "Product 42",
+    "description": "This is a description for product 42 in the outdoors category.",
+    "category": "outdoors",
+    "price": 648.76,
+    "discountPercentage": 1.14,
+    "rating": 3,
+    "stock": 474,
+    "brand": "HP",
+    "tags": [
+      "outdoors",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/42/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/42/1.jpg"
+    ]
+  },
+  {
+    "id": 43,
+    "title": "Product 43",
+    "description": "This is a description for product 43 in the outdoors category.",
+    "category": "outdoors",
+    "price": 154.23,
+    "discountPercentage": 19.92,
+    "rating": 1.4,
+    "stock": 248,
+    "brand": "HP",
+    "tags": [
+      "outdoors",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/43/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/43/1.jpg"
+    ]
+  },
+  {
+    "id": 44,
+    "title": "Product 44",
+    "description": "This is a description for product 44 in the books category.",
+    "category": "books",
+    "price": 880.3,
+    "discountPercentage": 14.31,
+    "rating": 2.7,
+    "stock": 449,
+    "brand": "Apple",
+    "tags": [
+      "books",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/44/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/44/1.jpg"
+    ]
+  },
+  {
+    "id": 45,
+    "title": "Product 45",
+    "description": "This is a description for product 45 in the beauty category.",
+    "category": "beauty",
+    "price": 346.07,
+    "discountPercentage": 6.43,
+    "rating": 4,
+    "stock": 377,
+    "brand": "HP",
+    "tags": [
+      "beauty",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/45/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/45/1.jpg"
+    ]
+  },
+  {
+    "id": 46,
+    "title": "Product 46",
+    "description": "This is a description for product 46 in the electronics category.",
+    "category": "electronics",
+    "price": 89.62,
+    "discountPercentage": 12.87,
+    "rating": 2,
+    "stock": 283,
+    "brand": "Adidas",
+    "tags": [
+      "electronics",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/46/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/46/1.jpg"
+    ]
+  },
+  {
+    "id": 47,
+    "title": "Product 47",
+    "description": "This is a description for product 47 in the clothing category.",
+    "category": "clothing",
+    "price": 23.44,
+    "discountPercentage": 12.45,
+    "rating": 2.7,
+    "stock": 333,
+    "brand": "Dell",
+    "tags": [
+      "clothing",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/47/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/47/1.jpg"
+    ]
+  },
+  {
+    "id": 48,
+    "title": "Product 48",
+    "description": "This is a description for product 48 in the outdoors category.",
+    "category": "outdoors",
+    "price": 121.13,
+    "discountPercentage": 15.62,
+    "rating": 2.6,
+    "stock": 167,
+    "brand": "HP",
+    "tags": [
+      "outdoors",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/48/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/48/1.jpg"
+    ]
+  },
+  {
+    "id": 49,
+    "title": "Product 49",
+    "description": "This is a description for product 49 in the beauty category.",
+    "category": "beauty",
+    "price": 682.61,
+    "discountPercentage": 19.52,
+    "rating": 3.8,
+    "stock": 301,
+    "brand": "Sony",
+    "tags": [
+      "beauty",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/49/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/49/1.jpg"
+    ]
+  },
+  {
+    "id": 50,
+    "title": "Product 50",
+    "description": "This is a description for product 50 in the clothing category.",
+    "category": "clothing",
+    "price": 892.43,
+    "discountPercentage": 2.09,
+    "rating": 3.3,
+    "stock": 210,
+    "brand": "Nike",
+    "tags": [
+      "clothing",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/50/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/50/1.jpg"
+    ]
+  },
+  {
+    "id": 51,
+    "title": "Product 51",
+    "description": "This is a description for product 51 in the books category.",
+    "category": "books",
+    "price": 139.7,
+    "discountPercentage": 0.84,
+    "rating": 1.6,
+    "stock": 180,
+    "brand": "Nike",
+    "tags": [
+      "books",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/51/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/51/1.jpg"
+    ]
+  },
+  {
+    "id": 52,
+    "title": "Product 52",
+    "description": "This is a description for product 52 in the beauty category.",
+    "category": "beauty",
+    "price": 708.54,
+    "discountPercentage": 6.55,
+    "rating": 2.3,
+    "stock": 3,
+    "brand": "Apple",
+    "tags": [
+      "beauty",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/52/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/52/1.jpg"
+    ]
+  },
+  {
+    "id": 53,
+    "title": "Product 53",
+    "description": "This is a description for product 53 in the electronics category.",
+    "category": "electronics",
+    "price": 352.85,
+    "discountPercentage": 4.93,
+    "rating": 1.5,
+    "stock": 242,
+    "brand": "Apple",
+    "tags": [
+      "electronics",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/53/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/53/1.jpg"
+    ]
+  },
+  {
+    "id": 54,
+    "title": "Product 54",
+    "description": "This is a description for product 54 in the books category.",
+    "category": "books",
+    "price": 14.1,
+    "discountPercentage": 13.29,
+    "rating": 3.5,
+    "stock": 416,
+    "brand": "Adidas",
+    "tags": [
+      "books",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/54/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/54/1.jpg"
+    ]
+  },
+  {
+    "id": 55,
+    "title": "Product 55",
+    "description": "This is a description for product 55 in the clothing category.",
+    "category": "clothing",
+    "price": 332.78,
+    "discountPercentage": 0.25,
+    "rating": 4.6,
+    "stock": 74,
+    "brand": "Dell",
+    "tags": [
+      "clothing",
+      "new",
+      "top"
+    ],
+    "thumbnail": "https://dummyjson.com/image/i/products/55/thumbnail.jpg",
+    "images": [
+      "https://dummyjson.com/image/i/products/55/1.jpg"
+    ]
+  }
+]
