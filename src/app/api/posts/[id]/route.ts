@@ -3,11 +3,12 @@ import path from "path";
 import type { NextRequest } from "next/server";
 
 export async function GET(
-    request: NextRequest,
+    _request: Request,
     { params }: { params: Promise<{ id: string }> }
 ) {
     try {
-        const { id } = await params;
+        const { id: idParam } = await params;
+        const id = parseInt(idParam);
         const dataPath = path.join(process.cwd(), "src/data/posts.json");
         const json = await fs.readFile(dataPath, "utf-8");
         const posts = JSON.parse(json);

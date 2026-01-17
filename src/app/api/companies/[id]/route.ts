@@ -23,9 +23,10 @@ const companies = companiesData as Array<{
 
 export async function GET(
     _request: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
-    const id = parseInt(params.id);
+    const { id: idParam } = await params;
+    const id = parseInt(idParam);
     const company = companies.find((c) => c.id === id);
 
     if (!company) {

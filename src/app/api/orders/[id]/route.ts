@@ -20,9 +20,10 @@ const orders = ordersData as Array<{
 
 export async function GET(
     _request: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
-    const id = parseInt(params.id);
+    const { id: idParam } = await params;
+    const id = parseInt(idParam);
     const order = orders.find((o) => o.id === id);
 
     if (!order) {
