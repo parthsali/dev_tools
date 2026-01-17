@@ -9,7 +9,6 @@ import {
     Globe,
     GitCompare,
     Hash,
-
     Wand2,
     FileText,
     Package,
@@ -17,6 +16,7 @@ import {
     Code2,
     Database,
     BookOpen,
+    Server,
     type LucideIcon,
 } from "lucide-react";
 
@@ -36,6 +36,14 @@ export interface ToolCategory {
 }
 
 export const tools: Tool[] = [
+    {
+        id: "dummy-api",
+        name: "Mock REST API",
+        description: "1000+ Indian test data endpoints",
+        icon: Server,
+        category: "http",
+        href: "/tools/dummy-api",
+    },
     {
         id: "api-tester",
         name: "API Tester",
@@ -188,14 +196,14 @@ export const tools: Tool[] = [
         category: "http",
         href: "/tools/url-parser",
     },
-    {
-        id: "uuid-generator",
-        name: "UUID Generator",
-        description: "Generate random UUIDs",
-        icon: Wand2,
-        category: "generators",
-        href: "/tools/uuid-generator",
-    },
+    // {
+    //     id: "uuid-generator",
+    //     name: "UUID Generator",
+    //     description: "Generate random UUIDs",
+    //     icon: Wand2,
+    //     category: "generators",
+    //     href: "/tools/uuid-generator",
+    // },
 ];
 
 export const categories: ToolCategory[] = [
