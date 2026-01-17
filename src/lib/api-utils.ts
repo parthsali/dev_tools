@@ -94,7 +94,7 @@ const rateLimitStore = new Map<string, number[]>();
 
 export async function checkRateLimit(
     request: NextRequest,
-    limit: number = 10,
+    limit: number = 100,
     windowMs: number = 60000
 ): Promise<RateLimitResponse> {
     const ip = (request as any).ip || request.headers.get("x-forwarded-for") || "unknown";
