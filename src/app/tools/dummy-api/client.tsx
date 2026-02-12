@@ -1090,7 +1090,7 @@ export default function DummyApiClient() {
                     <div className="flex items-center justify-center gap-2 pt-2">
                         <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-muted font-mono text-sm">
                             <Globe className="h-4 w-4 text-muted-foreground" />
-                            <span className="font-medium">{BASE_URL || "https://tools.parthsali.com"}</span>
+                            <span className="font-medium">{BASE_URL || "https://tools.parthsali.com/api"}</span>
                         </div>
                         <Button
                             variant="ghost"
