@@ -5,7 +5,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-A high-performance collection of essential tools for developers, designed to be fast, privacy-focused, and minimal. Built with the latest modern web stack.
+Fast, privacy-focused developer tools — everything runs in your browser, nothing is sent to a server. Live at **[tools.parthsali.com](https://tools.parthsali.com)**.
 
 ## ⚡ Tech Stack
 
@@ -44,6 +44,16 @@ A high-performance collection of essential tools for developers, designed to be 
 - **Data Generator**: Mock data for testing.
 - **HTTP Status Codes**: Quick reference guide.
 
+## 📖 Setup Guides
+
+Step-by-step guides for common dev setups — copy-paste commands, full TypeScript examples.
+
+- Next.js + shadcn/ui · Express + TypeScript + MongoDB · Next.js + Clerk Auth
+- Prisma + PostgreSQL · Docker + Node.js · Go + Gin + GORM
+- tRPC v11 + Next.js · Next.js + Supabase · GitHub Actions CI/CD
+
+→ [tools.parthsali.com/guides](https://tools.parthsali.com/guides)
+
 ## 🚀 Getting Started
 
 1. **Clone the repository**
@@ -68,10 +78,7 @@ A high-performance collection of essential tools for developers, designed to be 
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Fork and clone the repo
+2. `npm install && npm run dev`
+3. Make your changes
+4. Open a PR — describe what changed and why

@@ -1,21 +1,19 @@
 ---
-name: 🐛 Bug Report
-about: Create a report to help us improve
-title: "[BUG] "
+name: Bug
+about: Something is broken or behaving unexpectedly
+title: ''
 labels: bug
-assignees: ""
+assignees: ''
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**What's broken?**
 
-**To Reproduce**
-Steps to reproduce the behavior:
 
-1. Go to '...'
-2. Click on '...'
-3. Scroll down to '...'
-4. See error
+**Steps to reproduce**
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+
+**What should happen instead?**
+
+
+**Browser / OS** (if relevant)
+
