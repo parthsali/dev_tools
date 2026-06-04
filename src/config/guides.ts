@@ -113,6 +113,30 @@ export const guides: Guide[] = [
         category: "devops",
         tags: ["GitHub Actions", "CI/CD", "DevOps", "Automation"],
     },
+    {
+        id: "nestjs-typescript",
+        title: "NestJS + TypeScript + Prisma",
+        description: "Scalable enterprise Node.js REST API with NestJS, Prisma, and PostgreSQL",
+        icon: Layers,
+        category: "backend",
+        tags: ["NestJS", "TypeScript", "Prisma", "PostgreSQL", "Node.js"],
+    },
+    {
+        id: "hono-nodejs",
+        title: "Hono.js + Node.js API",
+        description: "Ultra-fast type-safe REST API with Hono.js, Zod validation, and TypeScript",
+        icon: Server,
+        category: "backend",
+        tags: ["Hono", "Node.js", "TypeScript", "Zod", "REST API"],
+    },
+    {
+        id: "redis-nodejs",
+        title: "Redis + Node.js Caching",
+        description: "Add production-grade in-memory caching to Express with ioredis",
+        icon: Zap,
+        category: "backend",
+        tags: ["Redis", "Node.js", "ioredis", "Caching", "Express"],
+    },
 ];
 
 export const guideContents: Record<string, GuideContent> = {
@@ -2983,6 +3007,425 @@ jobs:
                     default: "git add .github && git commit -m 'ci: add GitHub Actions CI/CD pipeline' && git push",
                 },
                 note: "Go to the Actions tab on your GitHub repository to watch the jobs run in real time. Failed steps show the exact command output.",
+            },
+        ],
+    },
+    "nestjs-typescript": {
+        id: "nestjs-typescript",
+        title: "NestJS + TypeScript + Prisma",
+        description: "Build a structured, enterprise-grade REST API with NestJS's module system, dependency injection, Prisma ORM, and PostgreSQL.",
+        icon: Layers,
+        tags: ["NestJS", "TypeScript", "Prisma", "PostgreSQL", "Node.js"],
+        prerequisites: ["Node.js 20+", "PostgreSQL database"],
+        references: [
+            { label: "NestJS Docs", url: "https://docs.nestjs.com" },
+            { label: "NestJS + Prisma Recipe", url: "https://docs.nestjs.com/recipes/prisma" },
+            { label: "NestJS CLI", url: "https://docs.nestjs.com/cli/overview" },
+            { label: "class-validator", url: "https://github.com/typestack/class-validator" },
+        ],
+        steps: [
+            {
+                title: "Install the NestJS CLI",
+                description: "The [NestJS CLI](https://docs.nestjs.com/cli/overview) scaffolds the full project structure and generates modules, controllers, and services with a single command.",
+                command: {
+                    npm: "npm install -g @nestjs/cli",
+                    pnpm: "pnpm add -g @nestjs/cli",
+                    yarn: "yarn global add @nestjs/cli",
+                    bun: "bun add -g @nestjs/cli",
+                },
+            },
+            {
+                title: "Create a New Project",
+                description: "Scaffold a new NestJS app. Choose `npm` when prompted (or your preferred package manager). The CLI sets up TypeScript, ESLint, Jest, and the full `src/` structure automatically.",
+                command: {
+                    default: "nest new my-nest-api",
+                },
+            },
+            {
+                title: "Install Prisma and Dependencies",
+                description: "Install [Prisma](https://prisma.io) as a dev dep, the Prisma Client as runtime, and [class-validator](https://github.com/typestack/class-validator) + [class-transformer](https://github.com/typestack/class-transformer) for DTO validation.",
+                command: {
+                    npm: "npm install @prisma/client class-validator class-transformer && npm install -D prisma",
+                    pnpm: "pnpm add @prisma/client class-validator class-transformer && pnpm add -D prisma",
+                    yarn: "yarn add @prisma/client class-validator class-transformer && yarn add -D prisma",
+                    bun: "bun add @prisma/client class-validator class-transformer && bun add -D prisma",
+                },
+            },
+            {
+                title: "Initialize Prisma",
+                description: "Generate the `prisma/schema.prisma` file and `.env`.",
+                command: {
+                    npm: "npx prisma init --datasource-provider postgresql",
+                    pnpm: "pnpm dlx prisma init --datasource-provider postgresql",
+                    yarn: "yarn prisma init --datasource-provider postgresql",
+                    bun: "bunx prisma init --datasource-provider postgresql",
+                },
+            },
+            {
+                title: "Define the Schema",
+                description: "Add a `User` model to `prisma/schema.prisma`.",
+                code: {
+                    language: "prisma",
+                    fileName: "prisma/schema.prisma",
+                    content: `generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}`,
+                },
+            },
+            {
+                title: "Run Migration",
+                command: {
+                    npm: "npx prisma migrate dev --name init",
+                    pnpm: "pnpm dlx prisma migrate dev --name init",
+                    yarn: "yarn prisma migrate dev --name init",
+                    bun: "bunx prisma migrate dev --name init",
+                },
+            },
+            {
+                title: "Create the PrismaService",
+                description: "NestJS uses dependency injection — wrap `PrismaClient` in an `@Injectable()` service so any module can import it. The `onModuleInit` hook opens the connection when the app starts.",
+                code: {
+                    language: "typescript",
+                    fileName: "src/prisma/prisma.service.ts",
+                    content: `import { Injectable, OnModuleInit } from '@nestjs/common'
+import { PrismaClient } from '@prisma/client'
+
+@Injectable()
+export class PrismaService extends PrismaClient implements OnModuleInit {
+  async onModuleInit() {
+    await this.$connect()
+  }
+}`,
+                },
+            },
+            {
+                title: "Create the PrismaModule",
+                description: "Export `PrismaService` from its own module so any feature module can import it.",
+                code: {
+                    language: "typescript",
+                    fileName: "src/prisma/prisma.module.ts",
+                    content: `import { Module } from '@nestjs/common'
+import { PrismaService } from './prisma.service'
+
+@Module({
+  providers: [PrismaService],
+  exports:   [PrismaService],
+})
+export class PrismaModule {}`,
+                },
+            },
+            {
+                title: "Generate the Users Resource",
+                description: "The CLI generates a complete `users/` folder with module, controller, service, and DTOs.",
+                command: {
+                    default: "nest generate resource users --no-spec",
+                },
+                note: "Choose 'REST API' when prompted, and 'Yes' for CRUD entry points.",
+            },
+            {
+                title: "Create the DTOs",
+                description: "DTOs define the shape of request bodies and are validated automatically by the `ValidationPipe`.",
+                code: {
+                    language: "typescript",
+                    fileName: "src/users/dto/create-user.dto.ts",
+                    content: `import { IsEmail, IsOptional, IsString, MinLength } from 'class-validator'
+
+export class CreateUserDto {
+  @IsEmail()
+  email: string
+
+  @IsOptional()
+  @IsString()
+  @MinLength(2)
+  name?: string
+}`,
+                },
+            },
+            {
+                title: "Implement the UsersService",
+                description: "Replace the generated stub with real Prisma queries.",
+                code: {
+                    language: "typescript",
+                    fileName: "src/users/users.service.ts",
+                    content: `import { Injectable, NotFoundException } from '@nestjs/common'
+import { PrismaService } from '../prisma/prisma.service'
+import { CreateUserDto } from './dto/create-user.dto'
+
+@Injectable()
+export class UsersService {
+  constructor(private readonly prisma: PrismaService) {}
+
+  findAll() {
+    return this.prisma.user.findMany({ orderBy: { createdAt: 'desc' } })
+  }
+
+  async findOne(id: number) {
+    const user = await this.prisma.user.findUnique({ where: { id } })
+    if (!user) throw new NotFoundException(\`User #\${id} not found\`)
+    return user
+  }
+
+  create(dto: CreateUserDto) {
+    return this.prisma.user.create({ data: dto })
+  }
+
+  async remove(id: number) {
+    await this.findOne(id)
+    return this.prisma.user.delete({ where: { id } })
+  }
+}`,
+                },
+            },
+            {
+                title: "Wire Up the Module and Enable Validation",
+                description: "Import `PrismaModule` in `UsersModule`, then enable `ValidationPipe` globally in `main.ts` so DTOs are validated on every request.",
+                code: {
+                    language: "typescript",
+                    fileName: "src/main.ts",
+                    content: `import { NestFactory } from '@nestjs/core'
+import { ValidationPipe } from '@nestjs/common'
+import { AppModule } from './app.module'
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule)
+
+  app.useGlobalPipes(new ValidationPipe({
+    whitelist:        true,   // strip unknown fields
+    forbidNonWhitelisted: true,
+    transform:        true,   // auto-cast params to correct types
+  }))
+
+  await app.listen(process.env.PORT ?? 3000)
+  console.log(\`Application running on port \${process.env.PORT ?? 3000}\`)
+}
+
+bootstrap()`,
+                },
+            },
+            {
+                title: "Start the Development Server",
+                command: {
+                    npm: "npm run start:dev",
+                    pnpm: "pnpm start:dev",
+                    yarn: "yarn start:dev",
+                    bun: "bun run start:dev",
+                },
+                note: "NestJS hot-reloads on save. Test with: `curl -X POST http://localhost:3000/users -H 'Content-Type: application/json' -d '{\"email\":\"alice@example.com\",\"name\":\"Alice\"}'`",
+            },
+        ],
+    },
+    "redis-nodejs": {
+        id: "redis-nodejs",
+        title: "Redis + Node.js Caching",
+        description: "Add fast in-memory caching to an Express + TypeScript API using ioredis, with a reusable cache middleware, configurable TTLs, and explicit cache invalidation.",
+        icon: Zap,
+        tags: ["Redis", "Node.js", "ioredis", "Caching", "Express", "TypeScript"],
+        prerequisites: ["Node.js 18+", "Redis (local via Docker, or a cloud instance — Upstash has a free tier)", "Existing Express + TypeScript app"],
+        references: [
+            { label: "ioredis Docs", url: "https://github.com/redis/ioredis" },
+            { label: "Redis Commands Reference", url: "https://redis.io/docs/latest/commands/" },
+            { label: "Upstash (serverless Redis)", url: "https://upstash.com" },
+        ],
+        steps: [
+            {
+                title: "Run Redis Locally with Docker",
+                description: "The fastest way to get Redis running locally. The `--save ''` flag disables disk persistence so it starts instantly.",
+                command: {
+                    default: "docker run -d --name redis -p 6379:6379 redis:7-alpine redis-server --save ''",
+                },
+                note: "Skip this step if you're using a cloud Redis instance (Upstash, Redis Cloud, etc.).",
+            },
+            {
+                title: "Install ioredis",
+                description: "[ioredis](https://github.com/redis/ioredis) is the most feature-complete Redis client for Node.js with first-class TypeScript support and automatic reconnection.",
+                command: {
+                    npm: "npm install ioredis && npm install -D @types/node",
+                    pnpm: "pnpm add ioredis",
+                    yarn: "yarn add ioredis",
+                    bun: "bun add ioredis",
+                },
+            },
+            {
+                title: "Create a Singleton Redis Client",
+                description: "Create `src/lib/redis.ts`. Using a singleton prevents opening a new connection pool on every import — critical in environments that hot-reload modules.",
+                code: {
+                    language: "typescript",
+                    fileName: "src/lib/redis.ts",
+                    content: `import Redis from 'ioredis'
+
+const globalForRedis = global as unknown as { redis?: Redis }
+
+export const redis =
+  globalForRedis.redis ??
+  new Redis({
+    host:           process.env.REDIS_HOST     || 'localhost',
+    port:           Number(process.env.REDIS_PORT) || 6379,
+    password:       process.env.REDIS_PASSWORD || undefined,
+    maxRetriesPerRequest: 3,
+    enableReadyCheck: true,
+    lazyConnect:    false,
+  })
+
+if (process.env.NODE_ENV !== 'production') {
+  globalForRedis.redis = redis
+}
+
+redis.on('error', (err) => console.error('[Redis] connection error:', err))
+redis.on('connect', ()  => console.log('[Redis] connected'))`,
+                },
+            },
+            {
+                title: "Build a Typed Cache Helper",
+                description: "Create `src/lib/cache.ts`. A thin wrapper around `redis.get`/`set` that handles JSON serialisation and expiry in one call. The generic `T` keeps responses fully typed.",
+                code: {
+                    language: "typescript",
+                    fileName: "src/lib/cache.ts",
+                    content: `import { redis } from './redis'
+
+export async function getCache<T>(key: string): Promise<T | null> {
+  const raw = await redis.get(key)
+  if (!raw) return null
+  try {
+    return JSON.parse(raw) as T
+  } catch {
+    return null
+  }
+}
+
+export async function setCache<T>(
+  key: string,
+  value: T,
+  ttlSeconds = 60
+): Promise<void> {
+  await redis.set(key, JSON.stringify(value), 'EX', ttlSeconds)
+}
+
+export async function deleteCache(key: string): Promise<void> {
+  await redis.del(key)
+}
+
+export async function deleteCacheByPattern(pattern: string): Promise<void> {
+  const keys = await redis.keys(pattern)
+  if (keys.length > 0) await redis.del(...keys)
+}`,
+                },
+            },
+            {
+                title: "Create a Cache Middleware for Express",
+                description: "Create `src/middleware/cache.ts`. Wrap any route with this middleware and it will serve cached responses instantly — only calling `next()` (and hitting your DB) on a cache miss.",
+                code: {
+                    language: "typescript",
+                    fileName: "src/middleware/cache.ts",
+                    content: `import { Request, Response, NextFunction } from 'express'
+import { getCache, setCache } from '../lib/cache'
+
+export function cacheMiddleware(ttlSeconds = 60) {
+  return async (req: Request, res: Response, next: NextFunction) => {
+    // Only cache GET requests
+    if (req.method !== 'GET') return next()
+
+    const key = \`cache:\${req.originalUrl}\`
+    const cached = await getCache(key)
+
+    if (cached) {
+      res.setHeader('X-Cache', 'HIT')
+      return res.json(cached)
+    }
+
+    // Intercept res.json to store the response before sending
+    const originalJson = res.json.bind(res)
+    res.json = (body) => {
+      if (res.statusCode === 200) {
+        setCache(key, body, ttlSeconds).catch(console.error)
+      }
+      res.setHeader('X-Cache', 'MISS')
+      return originalJson(body)
+    }
+
+    next()
+  }
+}`,
+                },
+            },
+            {
+                title: "Apply the Middleware to Routes",
+                description: "Pass `cacheMiddleware(ttl)` as a second argument to any route you want cached. Routes that mutate data should call `deleteCache` to invalidate stale entries.",
+                code: {
+                    language: "typescript",
+                    fileName: "src/routes/users.ts",
+                    content: `import { Router } from 'express'
+import { cacheMiddleware } from '../middleware/cache'
+import { deleteCache, deleteCacheByPattern } from '../lib/cache'
+
+const router = Router()
+
+// Cache the user list for 5 minutes
+router.get('/', cacheMiddleware(300), async (_req, res) => {
+  const users = await db.user.findMany()  // replace with your real query
+  res.json(users)
+})
+
+// Cache individual users for 10 minutes
+router.get('/:id', cacheMiddleware(600), async (req, res) => {
+  const user = await db.user.findUnique({ where: { id: Number(req.params.id) } })
+  if (!user) return res.status(404).json({ error: 'Not found' })
+  res.json(user)
+})
+
+// After creating a user, invalidate the cached list
+router.post('/', async (req, res) => {
+  const user = await db.user.create({ data: req.body })
+  await deleteCacheByPattern('cache:/users*')
+  res.status(201).json(user)
+})
+
+// After updating, invalidate both the list and the specific user cache
+router.patch('/:id', async (req, res) => {
+  const id = Number(req.params.id)
+  const user = await db.user.update({ where: { id }, data: req.body })
+  await Promise.all([
+    deleteCache(\`cache:/users/\${id}\`),
+    deleteCacheByPattern('cache:/users*'),
+  ])
+  res.json(user)
+})
+
+export default router`,
+                },
+            },
+            {
+                title: "Add Redis Config to .env",
+                code: {
+                    language: "bash",
+                    fileName: ".env",
+                    content: `# Local Redis
+REDIS_HOST=localhost
+REDIS_PORT=6379
+
+# Upstash (cloud) — use REDIS_URL instead
+# REDIS_URL=rediss://default:password@hostname:6379`,
+                },
+            },
+            {
+                title: "Test Cache Hits",
+                description: "Make the same GET request twice and check the `X-Cache` response header — first request is `MISS`, second is `HIT` (served from Redis in ~1ms).",
+                command: {
+                    default: "curl -v http://localhost:3000/users 2>&1 | grep -E 'X-Cache|< HTTP'",
+                },
+                note: "You can also inspect cached keys directly: `docker exec -it redis redis-cli KEYS 'cache:*'`",
             },
         ],
     },
