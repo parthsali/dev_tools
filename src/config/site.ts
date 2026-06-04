@@ -16,6 +16,7 @@ export const siteConfig = {
     },
     keywords: [
         "developer tools",
+        "developer guides",
         "regex tester",
         "json formatter",
         "base64",
@@ -23,7 +24,16 @@ export const siteConfig = {
         "jwt decoder",
         "web development",
         "programming",
-        "utilities"
+        "utilities",
+        "Next.js setup guide",
+        "tRPC tutorial",
+        "Prisma PostgreSQL guide",
+        "Docker Node.js",
+        "Winston logging",
+        "Clerk authentication",
+        "Hono.js REST API",
+        "Dodo Payments Next.js",
+        "Express TypeScript"
     ],
     system: {
         status: "Optimal",
